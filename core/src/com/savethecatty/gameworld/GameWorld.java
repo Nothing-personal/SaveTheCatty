@@ -9,11 +9,14 @@ public class GameWorld {
 
     private Catty catty;
 
-    public GameWorld() {
-
+    public GameWorld(int midPointY) {
+        catty = new Catty(60, midPointY - 9, 16, 18);
     }
 
     public void update(float delta) {
         catty.update(delta);
+    }
+    public Catty getCatty() {
+        return catty;
     }
 }
