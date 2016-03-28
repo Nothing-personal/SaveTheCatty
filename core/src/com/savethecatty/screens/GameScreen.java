@@ -5,9 +5,6 @@ import com.badlogic.gdx.Screen;
 import com.savethecatty.gameworld.GameRenderer;
 import com.savethecatty.gameworld.GameWorld;
 
-/**
- * Created by Кевин on 26.03.2016.
- */
 public class GameScreen implements Screen {
 
     private GameWorld world;
