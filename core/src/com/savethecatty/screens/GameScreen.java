@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.savethecatty.gameworld.GameRenderer;
 import com.savethecatty.gameworld.GameWorld;
+import com.savethecatty.helpers.InputHandler;
 
 public class GameScreen implements Screen {
 
@@ -20,6 +21,8 @@ public class GameScreen implements Screen {
         int midPointY = (int) (gameHeight / 2);
         world = new GameWorld(midPointY);
         renderer = new GameRenderer(world);
+
+        Gdx.input.setInputProcessor(new InputHandler(world.getCatty()));
     }
 
     @Override

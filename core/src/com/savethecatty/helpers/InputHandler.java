@@ -13,6 +13,7 @@ public class InputHandler implements InputProcessor{
     public InputHandler(Catty catty) {
         myCatty = catty;
     }
+
     @Override
     public boolean keyDown(int keycode) {
         return false;

@@ -33,7 +33,7 @@ public class Catty {
     }
 
     public float getX() {
-    return position.x;
+        return position.x;
     }
 
     public float getY() {
