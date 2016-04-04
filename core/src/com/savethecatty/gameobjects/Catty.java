@@ -19,6 +19,7 @@ public class Catty {
         position = new Vector2(x, y);
     }
 
+    // Some problems in class Catty with vectors. Check. NullPointerException
     public void update(float delta) {
         position.add(velocity.cpy().scl(delta));
     }

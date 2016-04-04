@@ -1,11 +1,8 @@
 package com.savethecatty;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.savethecatty.helpers.AssetLoader;
 import com.savethecatty.screens.GameScreen;
 
 public class Main extends Game {
@@ -13,6 +10,13 @@ public class Main extends Game {
 	@Override
 	public void create() {
 		Gdx.app.log("Main method", "created");
+		AssetLoader.load();
         setScreen(new GameScreen());
 	}
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        AssetLoader.dispose();
+    }
 }
