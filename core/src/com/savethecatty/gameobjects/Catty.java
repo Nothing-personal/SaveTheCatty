@@ -17,20 +17,22 @@ public class Catty {
         this.width = width;
         this.height = height;
         position = new Vector2(x, y);
+        velocity = new Vector2(0, 0);
     }
 
-    // Some problems in class Catty with vectors. Check. NullPointerException
+    // Should make it smooth
     public void update(float delta) {
-        position.add(velocity.cpy().scl(delta));
+        position.add(velocity.cpy().scl(delta * 2));
+        velocity.x = 0;
     }
 
     // Need testing of tapping in game
     public void rightTap() {
-        velocity.x = 10;
+        velocity.x = 100;
     }
 
     public void leftTap() {
-        velocity.x = -10;
+        velocity.x = -100;
     }
 
     public float getX() {
