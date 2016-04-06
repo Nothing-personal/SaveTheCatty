@@ -14,24 +14,30 @@ public class AssetLoader {
     public static TextureRegion background, wall, sideWall, borderWall;
 
     public static Animation cattyAnimation;
-    public static TextureRegion catty, cattyLeft, cattyRight;
+    public static TextureRegion catty, cattyLeftUp, cattyRightUp, cattyRightDown, cattyLeftDown;
 
     public static void load() {
 
-        textureCatty = new Texture(Gdx.files.internal("data/SaveTheCattyRed (7).png"));
+        textureCatty = new Texture(Gdx.files.internal("data/SaveTheCattyRed (3).png"));
         textureCatty.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest); // Filters for increasing/decreasing.
 
-        catty = new TextureRegion(textureCatty, 0, 0, 14, 20);
+        catty = new TextureRegion(textureCatty, 0, 0, 28, 40);
         catty.flip(false, true);
 
-        cattyRight = new TextureRegion(textureCatty, 14, 0, 14, 20);
-        cattyRight.flip(false, true);
+        cattyRightUp = new TextureRegion(textureCatty, 28, 0, 28, 40);
+        cattyRightUp.flip(false, true);
 
-        cattyLeft = new TextureRegion(textureCatty, 28, 0, 14, 20);
-        cattyLeft.flip(false, true);
+        cattyLeftUp = new TextureRegion(textureCatty, 56, 0, 28, 40);
+        cattyLeftUp.flip(false, true);
 
-        TextureRegion[] catties = { cattyLeft, catty, cattyRight };
-        cattyAnimation = new Animation(0.06f, catties); // Creating new object of type Animation in which every frame continue 0.06s
+        cattyRightDown = new TextureRegion(textureCatty, 84, 0, 28, 40);
+        cattyRightDown.flip(false, true);
+
+        cattyLeftDown = new TextureRegion(textureCatty, 112, 0, 28, 40);
+        cattyLeftDown.flip(false, true);
+
+        TextureRegion[] catties = { cattyLeftUp, cattyLeftDown, catty, cattyRightDown,cattyRightUp };
+        cattyAnimation = new Animation(0.5f, catties); // Creating new object of type Animation in which every frame continue 0.06s
         cattyAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG); // Type of animation ping-pong. It will play back and forth
     }
 

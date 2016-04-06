@@ -21,7 +21,7 @@ public class Catty {
         velocity = new Vector2(0, 0);
     }
 
-    // Should make it smooth
+    // Now it is smooth. So the only thing is left here - to check tapping with textures uploaded.
     public void update(float delta) {
         position.add(velocity.cpy().scl(delta));
     }
