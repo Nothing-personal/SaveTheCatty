@@ -1,6 +1,7 @@
 package com.savethecatty.gameobjects;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Timer;
 
 /**
  * Created by Кевин on 27.03.2016.
@@ -22,17 +23,20 @@ public class Catty {
 
     // Should make it smooth
     public void update(float delta) {
-        position.add(velocity.cpy().scl(delta * 2));
-        velocity.x = 0;
+        position.add(velocity.cpy().scl(delta));
     }
 
     // Need testing of tapping in game
     public void rightTap() {
-        velocity.x = 100;
+        velocity.x = 50;
     }
 
     public void leftTap() {
-        velocity.x = -100;
+        velocity.x = -50;
+    }
+
+    public void stop() {
+        velocity.x = 0;
     }
 
     public float getX() {
