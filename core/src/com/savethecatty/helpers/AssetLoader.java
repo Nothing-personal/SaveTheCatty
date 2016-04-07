@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class AssetLoader {
 
     public static Texture textureCatty, textureBackground, textureWalls;
-    public static TextureRegion background, wall, sideWall, borderWall;
+    public static TextureRegion background, wall, borderWall, angleWall, sideWall;
 
     public static Animation cattyAnimation;
     public static TextureRegion catty, cattyLeftUp, cattyRightUp, cattyRightDown, cattyLeftDown;
@@ -20,6 +20,26 @@ public class AssetLoader {
 
         textureCatty = new Texture(Gdx.files.internal("data/SaveTheCattyRed (3).png"));
         textureCatty.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest); // Filters for increasing/decreasing.
+
+        textureBackground = new Texture(Gdx.files.internal("data/Background.png"));
+        textureBackground.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+
+        textureWalls = new Texture(Gdx.files.internal("data/Walls (2).png"));
+        textureWalls.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+
+        background = new TextureRegion(textureBackground);
+        background.flip(false, true);
+
+        wall = new TextureRegion(textureWalls, 0, 0, 31, 31);
+        wall.flip(false, true);
+
+        borderWall = new TextureRegion(textureWalls, 34, 0, 31, 31);
+
+        angleWall = new TextureRegion(textureWalls, 102, 0, 31, 31);
+        angleWall.flip(false, true);
+
+        sideWall = new TextureRegion(textureWalls, 238, 0, 31, 31);
+        sideWall.flip(false, true);
 
         catty = new TextureRegion(textureCatty, 0, 0, 28, 40);
         catty.flip(false, true);

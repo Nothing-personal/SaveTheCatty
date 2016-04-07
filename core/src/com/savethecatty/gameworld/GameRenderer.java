@@ -51,6 +51,11 @@ public class GameRenderer {
         renderer.end();
 
         batcher.begin();
+        batcher.disableBlending();
+        batcher.draw(AssetLoader.background, 0, 0, 136, 204);
+
+        batcher.enableBlending();
+
         batcher.draw(AssetLoader.cattyAnimation.getKeyFrame(runTime), catty.getX(), catty.getY(),
                 catty.getWidth(),catty.getHeight());
         batcher.end();
