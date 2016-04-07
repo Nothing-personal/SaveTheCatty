@@ -22,7 +22,7 @@ public class AssetLoader {
         textureCatty = new Texture(Gdx.files.internal("data/SaveTheCattyRed (3).png"));
         textureCatty.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest); // Filters for increasing/decreasing.
 
-        textureBackground = new Texture(Gdx.files.internal("data/Background.png"));
+        textureBackground = new Texture(Gdx.files.internal("data/bg.png"));
         textureBackground.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         textureWalls = new Texture(Gdx.files.internal("data/Walls (2).png"));

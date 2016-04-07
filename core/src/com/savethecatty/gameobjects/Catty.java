@@ -1,11 +1,7 @@
 package com.savethecatty.gameobjects;
 
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Timer;
 
-/**
- * Created by Кевин on 27.03.2016.
- */
 public class Catty {
 
     private Vector2 position; // Position will change only on x-axis while tapping and holding left or right part of screen
