@@ -12,7 +12,7 @@ public class AssetLoader {
 
     public static Texture textureCatty, textureBackground, textureWalls;
     public static TextureRegion background, wall, borderWallLeft, borderWallRight, angleWallLeft, angleWallLeftUp,
-            angleWallRight, angleWallRightUp, sideWall;
+            angleWallRight, angleWallRightUp, sideWallRight, sideWallLeft;
 
     public static Animation cattyLeftAnimation, cattyRightAnimation;
     public static TextureRegion catty, cattyLeftUp, cattyRightUp, cattyRightDown, cattyLeftDown;
@@ -53,8 +53,11 @@ public class AssetLoader {
         angleWallLeftUp = new TextureRegion(angleWallRight);
 
         // After side walls from both sides comes wall
-        sideWall = new TextureRegion(textureWalls, 238, 0, 31, 31);
-        sideWall.flip(false, true);
+        sideWallRight = new TextureRegion(textureWalls, 238, 0, 31, 31);
+        sideWallRight.flip(false, true);
+
+        sideWallLeft = new TextureRegion(sideWallRight);
+        sideWallLeft.flip(true, true);
 
         catty = new TextureRegion(textureCatty, 0, 0, 28, 40);
         catty.flip(false, true);
@@ -72,11 +75,11 @@ public class AssetLoader {
         cattyLeftDown.flip(false, true);
 
         TextureRegion[] cattyLeft = { cattyLeftDown, cattyLeftUp };
-        cattyLeftAnimation = new Animation(0.3f, cattyLeft);
+        cattyLeftAnimation = new Animation(0.1f, cattyLeft);
         cattyLeftAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
 
         TextureRegion[] cattyRight = { cattyRightDown, cattyRightUp };
-        cattyRightAnimation = new Animation(0.3f, cattyRight);
+        cattyRightAnimation = new Animation(0.1f, cattyRight);
         cattyRightAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
     }
 
