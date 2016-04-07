@@ -24,15 +24,30 @@ public class Catty {
     // Now it is smooth. So the only thing is left here - to check tapping with textures uploaded.
     public void update(float delta) {
         position.add(velocity.cpy().scl(delta));
+        if (velocity.x < 0) {
+            rotation += 360 * delta;
+            if ( rotation > 45) {
+                rotation = 45;
+            }
+        }
+        if (isRight()) {
+            rotation -= 360 * delta;
+            if (rotation < -45) {
+                rotation = -45;
+            }
+        }
+        if (velocity.x == 0) {
+            rotation = 0;
+        }
     }
 
     // Need testing of tapping in game
     public void rightTap() {
-        velocity.x = 50;
+        velocity.x = 75;
     }
 
     public void leftTap() {
-        velocity.x = -50;
+        velocity.x = -75;
     }
 
     public void stop() {
@@ -57,5 +72,11 @@ public class Catty {
 
     public float getRotation() {
         return rotation;
+    }
+
+    public float getVelocityX() { return velocity.x; }
+
+    public boolean isRight() {
+        return velocity.x > 0;
     }
 }

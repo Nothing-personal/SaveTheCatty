@@ -11,9 +11,10 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class AssetLoader {
 
     public static Texture textureCatty, textureBackground, textureWalls;
-    public static TextureRegion background, wall, borderWall, angleWall, sideWall;
+    public static TextureRegion background, wall, borderWallLeft, borderWallRight, angleWallLeft, angleWallLeftUp,
+            angleWallRight, angleWallRightUp, sideWall;
 
-    public static Animation cattyAnimation;
+    public static Animation cattyLeftAnimation, cattyRightAnimation;
     public static TextureRegion catty, cattyLeftUp, cattyRightUp, cattyRightDown, cattyLeftDown;
 
     public static void load() {
@@ -33,11 +34,25 @@ public class AssetLoader {
         wall = new TextureRegion(textureWalls, 0, 0, 31, 31);
         wall.flip(false, true);
 
-        borderWall = new TextureRegion(textureWalls, 34, 0, 31, 31);
+        // Should go on straight areas after walls
+        borderWallLeft = new TextureRegion(textureWalls, 34, 0, 31, 31);
+        borderWallLeft.flip(false, true);
 
-        angleWall = new TextureRegion(textureWalls, 102, 0, 31, 31);
-        angleWall.flip(false, true);
+        borderWallRight = new TextureRegion(borderWallLeft);
+        borderWallRight.flip(true, true);
 
+        //Angle walls to create a pipe
+        angleWallLeft = new TextureRegion(textureWalls, 102, 0, 31, 31);
+        angleWallLeft.flip(false, true);
+
+        angleWallRightUp = new TextureRegion(angleWallLeft);
+
+        angleWallRight = new TextureRegion(angleWallLeft);
+        angleWallRight.flip(true, true);
+
+        angleWallLeftUp = new TextureRegion(angleWallRight);
+
+        // After side walls from both sides comes wall
         sideWall = new TextureRegion(textureWalls, 238, 0, 31, 31);
         sideWall.flip(false, true);
 
@@ -56,12 +71,16 @@ public class AssetLoader {
         cattyLeftDown = new TextureRegion(textureCatty, 112, 0, 28, 40);
         cattyLeftDown.flip(false, true);
 
-        TextureRegion[] catties = { cattyLeftUp, cattyLeftDown, catty, cattyRightDown,cattyRightUp };
-        cattyAnimation = new Animation(0.5f, catties); // Creating new object of type Animation in which every frame continue 0.06s
-        cattyAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG); // Type of animation ping-pong. It will play back and forth
+        TextureRegion[] cattyLeft = { cattyLeftDown, cattyLeftUp };
+        cattyLeftAnimation = new Animation(0.3f, cattyLeft);
+        cattyLeftAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+
+        TextureRegion[] cattyRight = { cattyRightDown, cattyRightUp };
+        cattyRightAnimation = new Animation(0.3f, cattyRight);
+        cattyRightAnimation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
     }
 
     public static void dispose() {
-        System.out.println("Object dispose");
+        textureWalls.dispose();
     }
 }
