@@ -2,13 +2,19 @@ package com.savethecatty.gameobjects;
 
 public class ScrollHandler {
 
-    private SideWall lastSideWall, firstSideWall; // Maybe it is better to use an array for this
-    private Walls rightWall, leftWall, leftAngleWall, rightAngleWall;
+    private Walls leftAngleWallDown, leftAngleWallUp, rightAngleWallDown, rightAngleWallUp,
+            rightBorder1, rightBorder2, rightBorder3, leftBorder1, leftBorder2, getLeftBorder3;
+    private SideWall leftSideWallFront, leftSideWallBack, rightSideWallFront, rightSideWallBack;
 
     public static final int SCROLL_SPEED = -59;
-    public static final int WALL_GAP = 60;
+    public static final int WALLS_GAP = 31;
 
     public ScrollHandler(float xPos) {
+        leftSideWallFront = new SideWall(0, 0, 21, 204, SCROLL_SPEED);
+        leftSideWallBack = new SideWall(0, leftSideWallFront.getTailY(), 21, 204, SCROLL_SPEED);
+
+        rightSideWallFront = new SideWall(115, 0, 21, 204, SCROLL_SPEED);
+        rightSideWallBack = new SideWall(115, rightSideWallFront.getTailY(), 21, 204, SCROLL_SPEED);
 
     }
 
@@ -16,28 +22,37 @@ public class ScrollHandler {
 
     }
 
-
-    public SideWall getLastSideWall() {
-        return lastSideWall;
+    public SideWall getLeftSideWallFront() {
+        return leftSideWallFront;
     }
 
-    public SideWall getFirstSideWall() {
-        return firstSideWall;
+    public SideWall getLeftSideWallBack() {
+        return leftSideWallBack;
     }
 
-    public Walls getRightWall() {
-        return rightWall;
+    public SideWall getRightSideWallFront() {
+        return rightSideWallFront;
     }
 
-    public Walls getLeftWall() {
-        return leftWall;
+    public SideWall getRightSideWallBack() {
+        return rightSideWallBack;
     }
 
-    public Walls getLeftAngleWall() {
-        return leftAngleWall;
+    public Walls getLeftAngleWallDown() {
+        return leftAngleWallDown;
     }
 
-    public Walls getRightAngleWall() {
-        return rightAngleWall;
+    public Walls getLeftAngleWallUp() {
+        return leftAngleWallUp;
     }
+
+    public Walls getRightAngleWallDown() {
+        return rightAngleWallDown;
+    }
+
+    public Walls getRightAngleWallUp() {
+        return rightAngleWallUp;
+    }
+
+
 }

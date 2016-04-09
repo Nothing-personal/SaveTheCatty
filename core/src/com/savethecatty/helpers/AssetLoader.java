@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  */
 public class AssetLoader {
 
-    public static Texture textureCatty, textureBackground, textureWalls;
+    public static Texture textureCatty, textureBackground, textureWalls, textureSideWalls;
     public static TextureRegion background, wall, borderWallLeft, borderWallRight, angleWallLeft, angleWallLeftUp,
             angleWallRight, angleWallRightUp, sideWallRight, sideWallLeft;
 
@@ -25,35 +25,38 @@ public class AssetLoader {
         textureBackground = new Texture(Gdx.files.internal("data/bg.png"));
         textureBackground.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
-        textureWalls = new Texture(Gdx.files.internal("data/Walls (2).png"));
+        textureWalls = new Texture(Gdx.files.internal("data/Borders.png"));
         textureWalls.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+
+        textureSideWalls = new Texture(Gdx.files.internal("data/SideWall.png"));
+        textureSideWalls.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         background = new TextureRegion(textureBackground);
         background.flip(false, true);
 
-        wall = new TextureRegion(textureWalls, 0, 0, 31, 31);
-        wall.flip(false, true);
-
-        // Should go on straight areas after walls
-        borderWallLeft = new TextureRegion(textureWalls, 34, 0, 31, 31);
+        // Should go on straight areas inside pipe
+        borderWallLeft = new TextureRegion(textureWalls, 0, 0, 31, 31);
         borderWallLeft.flip(false, true);
 
         borderWallRight = new TextureRegion(borderWallLeft);
         borderWallRight.flip(true, true);
 
         //Angle walls to create a pipe
-        angleWallLeft = new TextureRegion(textureWalls, 102, 0, 31, 31);
+        angleWallLeft = new TextureRegion(textureWalls, 32, 0, 31, 31);
         angleWallLeft.flip(false, true);
 
-        angleWallRightUp = new TextureRegion(angleWallLeft);
+        angleWallLeftUp = new TextureRegion(angleWallLeftUp);
+        angleWallLeftUp.flip(false, false);
 
         angleWallRight = new TextureRegion(angleWallLeft);
         angleWallRight.flip(true, true);
 
+        angleWallRightUp = new TextureRegion(angleWallRight);
+        angleWallRightUp.flip(false, false);
+
         angleWallLeftUp = new TextureRegion(angleWallRight);
 
-        // After side walls from both sides comes wall
-        sideWallRight = new TextureRegion(textureWalls, 238, 0, 31, 31);
+        sideWallRight = new TextureRegion(textureSideWalls, 0, 0, 21, 204);
         sideWallRight.flip(false, true);
 
         sideWallLeft = new TextureRegion(sideWallRight);
